@@ -1,0 +1,14 @@
+<form method="post" action="/items/{{item._id}}/update/">
+    <div class="input">
+        <label for="name">Название</label>
+        <input type="text" id="name" name="name" required="true" value="{{item.name}}">
+    </div>
+    <div class="input">
+        <label for="description">Описание</label>
+        <input type="text" id="description" name="description" required="true" value="{{item.description}}">
+    </div>
+    <button type="submit">Обновить предмет.</button>
+</form>
+<form method="post" action="/items/{{item._id}}/delete/">
+    <button type="submit">Удалить предмет.</button>
+</form>

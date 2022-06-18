@@ -1,3 +1,16 @@
-{{#each items}}
-    <li>{{this.name}}</li>
-{{/each}}
+<table>
+    <thead>
+        <th>Идентификатор.</th>
+        <th>Название.</th>
+        <th>Описание.</th>
+    </thead>
+    <tbody>
+        {{#each items}}
+            <tr>
+                <td><a href="items/{{this._id}}"><input type="button" value="Открыть страницу предмета."></a></td>
+                <td>{{this.name}}</td>
+                <td>{{this.description}}</td>
+            </tr>            
+        {{/each}}
+    </tbody>
+</table>

@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 const path = require('path');
 const Handlebars = require('handlebars')
 const {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-access') // нужно чтобы отключить запрет доступа к свойствам моделей из view.
-
+const bodyParser = require('body-parser')
 const port = config.get("port");
 const app = express();
 
@@ -27,6 +27,7 @@ hbs.registerPartials(path.join(__dirname, "/views/partials"));
 
 // подключаем поддержку считывания тела запроса с application/***-urlencoded.
 app.use(express.urlencoded({extended: true}))
+app.use(bodyParser.json());
 
 // подключаемся к базе.
 mongoose.connect(config.get("mongodb"));
