@@ -11,12 +11,17 @@
   "dependencies": {
     "@handlebars/allow-prototype-access": "^1.0.5",
     "config": "^3.3.7",
+    "connect-flash": "^0.1.1",
     "connect-mongodb-session": "^3.1.1",
+    "cookie-parser": "^1.4.6",
     "express": "^4.18.1",
     "express-handlebars": "^6.0.6",
     "express-session": "^1.17.3",
     "hbs": "^4.2.0",
     "mongoose": "^6.3.8",
+    "passport": "^0.6.0",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^7.1.2",
     "path": "^0.12.7"
   }
 }
