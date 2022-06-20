@@ -1,4 +1,5 @@
 {
     "port": 3000,
-    "mongodb": "mongodb://localhost:8081/crud-new-app"
+    "mongodb": "mongodb://localhost:8081/crud-new-app",
+    "session_secret": "Ruslan"
 }

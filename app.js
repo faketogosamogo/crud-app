@@ -6,9 +6,28 @@ const mongoose = require('mongoose');
 const path = require('path');
 const Handlebars = require('handlebars')
 const {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-access') // нужно чтобы отключить запрет доступа к свойствам моделей из view.
-const bodyParser = require('body-parser')
+const bodyParser = require('body-parser');
+const session = require('express-session')
+const MongoDBStore = require('connect-mongodb-session')(session);
+
 const port = config.get("port");
 const app = express();
+
+// Объявили хранилище сессий.
+var store = new MongoDBStore({
+    uri: config.get("mongodb"),
+  });
+
+// Сказали приложению использовать сессии.
+app.use(session({
+    secret: config.get("session_secret"),
+    cookie: {
+      maxAge: 1000 * 60 * 60 * 24 * 7 // 1 week
+    },
+    store: store,
+    resave: true,
+    saveUninitialized: true
+  }));
 
 // Здесь мы подключаем слои. Например ты не будешь на каждой странице писать и нижний блок и навигацию и кодировку определять.
 app.engine("hbs", expressHbs.engine(
